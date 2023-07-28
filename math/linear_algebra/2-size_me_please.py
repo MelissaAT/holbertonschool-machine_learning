@@ -2,6 +2,7 @@
 
 """Documentation"""
 
+
 def matrix_shape(matrix):
     """Shape of a matrix"""
     shape = []
