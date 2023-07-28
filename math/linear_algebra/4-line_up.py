@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""DOcumentation"""
+"""DOcumentation """
 
 
 def add_arrays(arr1, arr2):
