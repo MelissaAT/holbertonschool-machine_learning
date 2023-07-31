@@ -3,7 +3,8 @@
 
 
 def np_elementwise(mat1, mat2):
-    """performs element-wise addition, subtraction, multiplication, and division"""
+    """performs element-wise addition, 
+    subtraction, multiplication, and division"""
     sum_result = mat1 + mat2
     diff_result = mat1 - mat2
     product_result = mat1 * mat2
