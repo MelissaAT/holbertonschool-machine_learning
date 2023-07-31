@@ -2,7 +2,6 @@
 """Documentation"""
 
 
-
 def np_transpose(matrix):
     """transposes matrix"""
     transpose_matrix = matrix.T
