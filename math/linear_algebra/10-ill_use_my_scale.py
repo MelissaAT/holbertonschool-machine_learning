@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Documentation"""
+"""Documentation """
 
 
 def np_shape(matrix):
