@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Documentation"""
+"""Documentation """
 import numpy as np
 
 
