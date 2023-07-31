@@ -2,10 +2,8 @@
 """Documentation"""
 
 
-import numpy as np
-
 
 def np_transpose(matrix):
     """transposes matrix"""
-    transpose_matrix = np.transpose(matrix)
+    transpose_matrix = matrix.transpose
     return transpose_matrix
