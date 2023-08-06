@@ -9,7 +9,6 @@ t2 = 1600
 y1 = np.exp((r / t1) * x)
 y2 = np.exp((r / t2) * x)
 
-# Plot graph
 plt.plot(x, y1, linestyle="dashed", color="red")
 plt.plot(x, y2, color="green")
 
