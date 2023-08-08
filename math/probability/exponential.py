@@ -23,4 +23,3 @@ class Exponential():
         else:
             e = 2.7182818285  # Euler's number
             return self.lambtha * (e ** (-self.lambtha * x))
-        
