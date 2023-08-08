@@ -15,23 +15,26 @@ class Poisson:
                 raise ValueError("data must contain multiple values")
             self.lambtha = sum(data) / len(data)
 
-    def factorial(self, n):
-        if n == 0:
-            return 1
-        return n * self.factorial(n - 1)
-    
     def pmf(self, k):
         k = int(k)
         if k < 0:
             return 0
-        pmf = (self.lambtha ** k) * (math.e ** (-self.lambtha)) / self.factorial(k)
-        return pmf
+        pmf_value = 1
+        for i in range(1, k + 1):
+            pmf_value *= self.lambtha / i
+        pmf_value *= (2.71828 ** (-self.lambtha))
+        return pmf_value
 
     def cdf(self, k):
         k = int(k)
         if k < 0:
             return 0
-        cdf = 0
+        cdf_value = 0
+        probability = 1
         for i in range(k + 1):
-            cdf += (self.lambtha ** i) * (math.e ** (-self.lambtha)) / self.factorial(i)
-        return cdf
+            cdf_value += probability * (2.71828 ** (-self.lambtha))
+            probability *= self.lambtha / (i + 1)
+        return cdf_value
+
+    def __str__(self):
+        return f"Poisson distribution with lambda = {self.lambtha}"
