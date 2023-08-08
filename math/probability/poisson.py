@@ -3,6 +3,7 @@
 
 
 class Poisson:
+    """Documentation"""
     def __init__(self, data=None, lambtha=1.):
         if data is None:
             if lambtha <= 0:
@@ -19,19 +20,19 @@ class Poisson:
         k = int(k)
         if k < 0:
             return 0
-        pmf_value = 1
+        pmf = 1
         for i in range(1, k + 1):
-            pmf_value *= self.lambtha / i
-        pmf_value *= (2.71828 ** (-self.lambtha))
-        return pmf_value
+            pmf *= self.lambtha / i
+        pmf *= (2.71828 ** (-self.lambtha))
+        return pmf
 
     def cdf(self, k):
         k = int(k)
         if k < 0:
             return 0
-        cdf_value = 0
+        cdf = 0
         probability = 1
         for i in range(k + 1):
-            cdf_value += probability * (2.71828 ** (-self.lambtha))
+            cdf += probability * (2.71828 ** (-self.lambtha))
             probability *= self.lambtha / (i + 1)
-        return cdf_value
+        return cdf
