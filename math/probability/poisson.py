@@ -16,6 +16,11 @@ class Poisson():
                 raise ValueError("data must contain multiple values")
             self.lambtha = sum(data) / len(data)
 
+    def factorial(self, n):
+        if n == 0:
+            return 1
+        return n * self.factorial(n - 1)
+    
     def pmf(self, k):
         k = int(k)
         if k < 0:
