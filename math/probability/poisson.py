@@ -20,7 +20,6 @@ class Poisson():
         k = int(k)
         if k < 0:
             return 0
-        import math
         pmf =(self.lambtha ** k) * (2.71828 ** (-self.lambtha)) / self.factorial(k)
         return pmf
 
