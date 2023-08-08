@@ -21,16 +21,15 @@ class Poisson():
         if k < 0:
             return 0
         import math
-        pmf = (math.exp(-self.lambtha) * self.lambtha ** k) / math.factorial(k)
+        pmf =(self.lambtha ** k) * (2.71828 ** (-self.lambtha)) / self.factorial(k)
         return pmf
 
     def cdf(self, k):
         k = int(k)
         if k < 0:
             return 0
-        import math
         cdf = 0
         for i in range(k + 1):
-            cdf += (math.exp(-self.lambtha) * self.lambtha ** i / math.factorial(i))
+            cdf += (self.lambtha ** i) * (2.71828 ** (-self.lambtha)) / self.factorial(i)
         return cdf
         
