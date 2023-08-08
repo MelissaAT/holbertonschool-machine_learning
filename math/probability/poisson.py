@@ -3,7 +3,7 @@
 
 
 class Poisson:
-    """Documentation  represents a poisson distribution"""
+    """Poisson class represents a Poisson distribution."""
     def __init__(self, data=None, lambtha=1.):
         if data is None:
             if lambtha <= 0:
@@ -14,25 +14,29 @@ class Poisson:
                 raise TypeError("data must be a list")
             if len(data) < 2:
                 raise ValueError("data must contain multiple values")
-            self.lambtha = sum(data) / len(data)
+            self.lambtha = float(sum(data) / len(data))
 
     def pmf(self, k):
+        """Calculates the probability mass function (PMF)
+        for a given number of "successes" k."""
         k = int(k)
         if k < 0:
             return 0
-        pmf = 1
-        for i in range(1, k + 1):
-            pmf *= self.lambtha / i
-        pmf *= (2.71828 ** (-self.lambtha))
-        return pmf
+        else:
+            e = 2.7182818285  # Euler's number
+            factorial_k = 1
+            for i in range(1, k + 1):
+                factorial_k *= i
+            return (e ** -self.lambtha) * (self.lambtha ** k) / factorial_k
 
     def cdf(self, k):
+        """Calculates the cumulative distribution function
+        (CDF) for a given number of "successes" k."""
         k = int(k)
         if k < 0:
             return 0
-        cdf = 0
-        probability = 1
-        for i in range(k + 1):
-            cdf += probability * (2.71828 ** (-self.lambtha))
-            probability *= self.lambtha / (i + 1)
-        return cdf
+        else:
+            cdf_value = 0
+            for i in range(k + 1):
+                cdf_value += self.pmf(i)
+            return cdf_value
