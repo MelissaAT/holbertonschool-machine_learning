@@ -35,6 +35,3 @@ class Poisson:
             cdf_value += probability * (2.71828 ** (-self.lambtha))
             probability *= self.lambtha / (i + 1)
         return cdf_value
-
-    def __str__(self):
-        return f"Poisson distribution with lambda = {self.lambtha}"
