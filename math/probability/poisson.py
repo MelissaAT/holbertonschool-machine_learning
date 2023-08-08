@@ -1,9 +1,4 @@
-#!/usr/bin/env python3
-"""Documentation"""
-
-
-class Poisson():
-    """represents poisson distribution"""
+class Poisson:
     def __init__(self, data=None, lambtha=1.):
         if data is None:
             if lambtha <= 0:
@@ -25,7 +20,7 @@ class Poisson():
         k = int(k)
         if k < 0:
             return 0
-        pmf =(self.lambtha ** k) * (2.71828 ** (-self.lambtha)) / self.factorial(k)
+        pmf = (self.lambtha ** k) * (math.e ** (-self.lambtha)) / self.factorial(k)
         return pmf
 
     def cdf(self, k):
@@ -34,6 +29,5 @@ class Poisson():
             return 0
         cdf = 0
         for i in range(k + 1):
-            cdf += (self.lambtha ** i) * (2.71828 ** (-self.lambtha)) / self.factorial(i)
+            cdf += (self.lambtha ** i) * (math.e ** (-self.lambtha)) / self.factorial(i)
         return cdf
-        
