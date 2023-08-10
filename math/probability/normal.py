@@ -29,11 +29,4 @@ class Normal:
         """Calculates the x-value of a given z-score.
         """
         return self.mean + z * self.stddev
-
-    def pdf(self, x):
-        """Calculates the probability density function (PDF) for a given x-value.
-        """
-        from math import exp, sqrt, pi
-
-        return (1 / (self.stddev * sqrt(2 * pi))) * exp(-0.5 * ((x - self.mean) / self.stddev) ** 2)
     
