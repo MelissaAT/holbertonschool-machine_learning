@@ -23,3 +23,13 @@ class Exponential():
         else:
             e = 2.7182818285  # Euler's number
             return self.lambtha * (e ** (-self.lambtha * x))
+
+    def cdf(self, x):
+        """Calculates the cumulative distribution function (CDF)
+        for a given time period x.
+        """
+        if x < 0:
+            return 0
+        else:
+            e = 2.7182818285
+            return 1 - (e ** (-self.lambtha * x))
