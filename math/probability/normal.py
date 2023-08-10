@@ -30,4 +30,18 @@ class Normal:
         """Calculates the x-value of a given z-score.
         """
         return self.mean + z * self.stddev
+
+    def pdf(self, x):
+        """Calculates the probability density function (PDF)
+        for a given x-value.
+    """
+        PI = 3.14159265358979323846
+        SQRT_TWO_PI = 2.5066282746310002 # sqrt(2 * PI)
+        exponent = -0.5 * ((x - self.mean) / self.stddev) ** 2
+        e_to_power = 1
+        term = 1
+        for i in range(1, 20): # Taylor expansion for e^x
+            term *= exponent / i
+            e_to_power += term
+        return (1 / (self.stddev * SQRT_TWO_PI)) * e_to_power
     
