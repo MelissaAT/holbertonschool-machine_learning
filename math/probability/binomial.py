@@ -31,3 +31,22 @@ class Binomial:
             
             self.n = n
             self.p = p
+
+    def factorial(self, n):
+        """Calculates the factorial of n."""
+        return 1 if n == 0 else n * self.factorial(n - 1)
+
+    def pmf(self, k):
+        """Calculates the probability mass function (PMF)
+        for a given number of successes.
+        """
+        k = int(k)  # Converting k to an integer if it's not
+        if k < 0 or k > self.n:
+            return 0
+        
+        # Binomial coefficient calculation
+        coef = self.factorial(self.n) / (self.factorial(k) * self.factorial(self.n - k))
+        
+        # PMF calculation using the binomial probability formula
+        return coef * (self.p ** k) * ((1 - self.p) ** (self.n - k))
+    
