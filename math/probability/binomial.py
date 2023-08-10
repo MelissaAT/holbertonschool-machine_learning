@@ -40,12 +40,14 @@ class Binomial:
         """Calculates the probability mass function (PMF)
         for a given number of successes.
         """
-         k = int(k)  # Converting k to an integer if it's not
+        k = int(k)  # Converting k to an integer if it's not
         if k < 0 or k > self.n:
             return 0
 
+
         # Binomial coefficient calculation
         coef = self.factorial(self.n) / (self.factorial(k) * self.factorial(self.n - k))
+
 
         # PMF calculation using the binomial probability formula
         return coef * (self.p ** k) * ((1 - self.p) ** (self.n - k))
