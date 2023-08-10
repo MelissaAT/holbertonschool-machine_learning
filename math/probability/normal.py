@@ -44,4 +44,15 @@ class Normal:
             term *= exponent / i
             e_to_power += term
         return (1 / (self.stddev * SQRT_TWO_PI)) * e_to_power
+
+    def cdf(self, x):
+        """Calculates the cumulative distribution function (CDF) for a given x-value.
+        """
+        Z = (x - self.mean) / (self.stddev * (2 ** 0.5))
+        T = 1 / (1 + 0.5 * abs(Z))
+        constants = [0.319381530, -0.356563782, 1.781477937, -1.821255978, 1.330274429]
+        sum_constants = sum(c * (T ** (i+1)) for i, c in enumerate(constants))
+        prob = 1 - (T * sum_constants * ((2 * 3.14159265358979323846) ** -0.5) * (2.718281828459045 ** (-Z * Z / 2)))
+
+        return prob if Z >= 0 else 1 - prob    
     
