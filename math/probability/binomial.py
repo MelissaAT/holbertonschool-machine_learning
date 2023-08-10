@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+"""Documentation"""
+
+
 class Binomial:
     """Binomial class represents a binomial distribution."""
     
